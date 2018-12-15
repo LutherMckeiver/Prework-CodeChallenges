@@ -10,7 +10,8 @@ namespace Challenges
     {
         static void Main(string[] args)
         {
-            ArrayMaxResult();
+          //  ArrayMaxResult();
+            LeapYear();
         }
 
         static int ArrayMaxResult()
@@ -48,6 +49,32 @@ namespace Challenges
             Console.ReadLine();
             return answer;
         }
+
+        static bool LeapYear()
+        {
+            int year;
+
+            Console.Write("Pick a year and I will determine if it's a Leap Year: ");
+            int.TryParse(Console.ReadLine(), out year);
+            Console.ReadLine();
+
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0)
+                {
+                    if (year % 400 == 0)
+                    {
+                        Console.WriteLine($"{year} is a leap year");
+                        Console.ReadLine();
+                        return true;
+                    }
+                }
+            }
+            Console.Write($"{year} is not a leap year");
+            Console.ReadLine();
+            return false;
+        }            
+
         
     }
 }
