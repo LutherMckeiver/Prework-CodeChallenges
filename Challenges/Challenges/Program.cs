@@ -10,8 +10,10 @@ namespace Challenges
     {
         static void Main(string[] args)
         {
-          //  ArrayMaxResult();
-            LeapYear();
+            //  ArrayMaxResult();
+            // LeapYear();
+            int[] numbArr = new int[3] {1, 2, 3};
+            PerfectSequence(numbArr);
         }
 
         static int ArrayMaxResult()
@@ -73,8 +75,33 @@ namespace Challenges
             Console.Write($"{year} is not a leap year");
             Console.ReadLine();
             return false;
-        }            
-
-        
+        } 
+        static bool PerfectSequence(int[] arr)
+        {
+            int sum = 0;
+            int product = 1;
+            for (var i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    sum += arr[i];
+                    product *= arr[i];
+                }
+            }
+            if (sum == product)
+            {
+                Console.WriteLine($"{sum} and {product} are equal, therefore a Perfect Sequence");
+                Console.ReadLine();
+                return true;
+            }
+            Console.WriteLine("Not a perfect Sequence");
+            Console.ReadLine();
+            return false;
+        }
     }
 }
+
