@@ -10,10 +10,12 @@ namespace Challenges
     {
         static void Main(string[] args)
         {
-            //  ArrayMaxResult();
-            // LeapYear();
-            int[] numbArr = new int[3] {1, 2, 3};
-            PerfectSequence(numbArr);
+             ArrayMaxResult();
+             LeapYear();
+             int[] numbArr = new int[3] {1, 2, 3};
+             PerfectSequence(numbArr);
+             int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+             SumOfRows(myArray);
         }
 
         static int ArrayMaxResult()
@@ -101,6 +103,25 @@ namespace Challenges
             Console.WriteLine("Not a perfect Sequence");
             Console.ReadLine();
             return false;
+        }
+        static int[] SumOfRows(int[,] myArray)
+        {
+            int[] newArr = new int[myArray.GetLength(0)];
+
+            for (int i = 0; i < myArray.GetLength(0); i++)
+            {
+                int rowSum = 0;
+                for (int j = 0; j < myArray.GetLength(1); j++)
+                {
+                    rowSum += myArray[i, j];
+                }
+
+                newArr[i] = rowSum;
+                
+            }
+            Console.WriteLine($"[{string.Join(", ", newArr)}]");
+            Console.ReadLine();
+            return newArr;
         }
     }
 }
