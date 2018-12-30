@@ -10,12 +10,12 @@ namespace Challenges
     {
         static void Main(string[] args)
         {
-             ArrayMaxResult();
-             LeapYear();
-             int[] numbArr = new int[3] {1, 2, 3};
-             PerfectSequence(numbArr);
-             int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
-             SumOfRows(myArray);
+             // ArrayMaxResult();
+             // LeapYear();
+             // int[] numbArr = new int[3] {1, 2, 3};
+             // PerfectSequence(numbArr);
+             // int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+             // SumOfRows(myArray);
         }
 
         static int ArrayMaxResult()
@@ -62,19 +62,20 @@ namespace Challenges
             int.TryParse(Console.ReadLine(), out year);
             Console.ReadLine();
 
-            if (year % 4 == 0)
+            if (year % 100 == 0)
             {
-                if (year % 100 == 0)
+                if (year % 400 == 0)
                 {
-                    if (year % 400 == 0)
-                    {
-                        Console.WriteLine($"{year} is a leap year");
-                        Console.ReadLine();
-                        return true;
-                    }
+                    Console.WriteLine(@"{0} is a leap year", year);
                 }
+                else
+                    Console.Write(year + " is not a leap year");
             }
-            Console.Write($"{year} is not a leap year");
+            else if (year % 4 == 0)
+                Console.WriteLine(year + " is a leap year");
+            else
+                Console.WriteLine(year + " is not a leap year");
+            
             Console.ReadLine();
             return false;
         } 
